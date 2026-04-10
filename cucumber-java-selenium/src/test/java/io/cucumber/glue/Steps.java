@@ -5,7 +5,9 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import io.cucumber.pages.herokuHomePage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -51,5 +53,32 @@ public class Steps {
         for (WebElement link : links) {
             System.out.println("- " + link.getText());
         }
+    }
+
+    @When("the Basic Auth example is opened")
+    public void selectBasicAuth(){
+        //String message = driver.findElement(By.linkText("Basic Auth")).getText();
+        System.out.println("Link detected: " + homePage.basicAuthLink());
+        homePage.basicAuthLink().click();
+    }
+
+    @And("valid credentials are supplied")
+    public void enterBasicAuth(){
+        // Format: https://username:password@domain.com
+        // For this site, the credentials are admin / admin
+        driver.get("https://admin:admin@the-internet.herokuapp.com/basic_auth");
+    }
+
+    @Then("Congratulations should be displayed")
+    public void verifyText(){
+    String message = homePage.basicAuthHeader();
+        if(message.contains("Congratulations!")){
+            System.out.println("Success! Message detected: " + message);
+        }
+        else{
+            System.out.println("Failed! Message not detected");
+        }
+        //System.out.println("Navigated to: " + driver.getCurrentUrl());
+
     }
 }

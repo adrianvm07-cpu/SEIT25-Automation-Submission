@@ -18,7 +18,15 @@ public class herokuHomePage {
     }
 
     public List<WebElement> getAllLinks() {
-        return driver.findElements(By.cssSelector("li a"));
+        return driver.findElements(By.cssSelector("ul li a"));
+    }
+
+    public WebElement basicAuthLink(){
+        return driver.findElement(By.linkText("Basic Auth"));
+    }
+
+    public String basicAuthHeader(){
+        return driver.findElement(By.cssSelector("p")).getText();
     }
 }
 
