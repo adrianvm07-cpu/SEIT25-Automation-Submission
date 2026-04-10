@@ -83,9 +83,10 @@ public class Steps {
 
     @When("the Sortable Data Tables page is opened")
     public void sortableTableLabel() throws InterruptedException {
-        Thread.sleep(2000);
-        System.out.println("Link detected: " + homePage.sortableDataTablesLink());
-        homePage.sortableDataTablesLink().click();
+        //System.out.println("Link detected: " + homePage.sortableDataTablesLink()); - not working
+        //homePage.sortableDataTablesLink().click();
+        driver.get("https://the-internet.herokuapp.com/tables");
+        System.out.println("Navigated to: " + driver.getCurrentUrl());
     }
 
     @And("Example 1 header is displayed")

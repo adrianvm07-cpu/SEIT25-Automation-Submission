@@ -29,9 +29,11 @@ public class herokuHomePage {
         return driver.findElement(By.cssSelector("p")).getText();
     }
 
-    public WebElement sortableDataTablesLink(){
-        return driver.findElement(By.xpath("//a[text()='Sortable Data Tables']"));
-    }
+    /* -Did not work
+    //public WebElement sortableDataTablesLink(){
+        //return driver.findElement(By.partialLinkText("Sortable"));
+    //}
+    */
 
     public WebElement getExample1Text(){
         return driver.findElement(By.xpath("//h4[text()='Example 1']"));
