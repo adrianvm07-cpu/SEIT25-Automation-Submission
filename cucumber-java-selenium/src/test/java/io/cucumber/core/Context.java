@@ -1,11 +1,16 @@
 package io.cucumber.core;
 
 import java.util.HashMap;
+
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+
 
 public class Context {
 
   protected Manager manager;
+
+  protected WebDriver driver;
 
   public Context(Manager manager) {
     this.manager = manager;

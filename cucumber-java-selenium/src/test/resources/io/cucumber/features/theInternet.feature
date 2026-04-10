@@ -3,9 +3,9 @@ Feature: The Internet
 
   @TEST_TI_0001
   Scenario: Homepage has a list of links to Expected examples
-    Given the page under test is 'https://the-internet.herokuapp.com'
-    And an example Home Page step
-    And add other steps
+    Given the page under test is "https://the-internet.herokuapp.com"
+    And I can see the "Available Examples" header
+    Then The links are displayed
 
 #  @TEST_TI_0001
 #  Scenario: Basic Auth allows validated access
