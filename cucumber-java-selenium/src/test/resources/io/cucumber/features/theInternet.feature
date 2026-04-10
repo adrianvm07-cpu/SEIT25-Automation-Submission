@@ -14,7 +14,9 @@ Feature: The Internet
     And valid credentials are supplied
     Then Congratulations should be displayed
 
-#  @TEST_TI_0001
-#  Scenario: Sortable Data Tables - Example 1 displays the expected 4 results
-#    Given the page under test is 'Sortable Data Tables'
-#    And add other steps
+  @TEST_TI_0003
+ Scenario: Sortable Data Tables - Example 1 displays the expected 4 results
+    Given the page under test is 'https://the-internet.herokuapp.com'
+    When the Sortable Data Tables page is opened
+    And Example 1 header is displayed
+    Then rows of Example 1 is displayed

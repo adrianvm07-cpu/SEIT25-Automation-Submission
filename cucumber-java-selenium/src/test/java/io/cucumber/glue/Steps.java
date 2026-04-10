@@ -79,6 +79,33 @@ public class Steps {
             System.out.println("Failed! Message not detected");
         }
         //System.out.println("Navigated to: " + driver.getCurrentUrl());
+    }
 
+    @When("the Sortable Data Tables page is opened")
+    public void sortableTableLabel() throws InterruptedException {
+        Thread.sleep(2000);
+        System.out.println("Link detected: " + homePage.sortableDataTablesLink());
+        homePage.sortableDataTablesLink().click();
+    }
+
+    @And("Example 1 header is displayed")
+    public void example1Header(){
+        System.out.println("Header detected: " + homePage.getExample1Text());
+    }
+
+    @Then("rows of Example 1 is displayed")
+    public void example1Table(){
+
+        // 1. Get the list of row elements
+        List<WebElement> rows = homePage.getTableRows();
+
+        // 2. Loop through them one by one
+        for (int i = 0; i < rows.size(); i++) {
+            // Get the text of the current row
+            String rowData = rows.get(i).getText();
+
+            // Print it out
+            System.out.println("Row " + (i + 1) + " contains: " + rowData);
+        }
     }
 }
